@@ -15,92 +15,91 @@ themeBtn.addEventListener('click', () => {
     themeBtn.textContent = isDark ? '☀️' : '🌙';
 });
 
-// Revenue Chart
-const revenueCtx = document.getElementById('revenueChart').getContext('2d');
-new Chart(revenueCtx, {
-    type: 'line',
-    data: {
-        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
-        datasets: [
-            {
-                label: 'Doanh thu',
-                data: [12000, 15000, 13500, 18000, 16500, 19000, 21000],
-                borderColor: '#667eea',
-                backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                tension: 0.4,
-                fill: true,
-                pointBackgroundColor: '#667eea',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointRadius: 6,
-                pointHoverRadius: 8
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-            legend: {
-                display: true,
-                labels: {
-                    padding: 15,
-                    font: { size: 12, weight: '500' }
-                }
-            }
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    callback: function(value) {
-                        return '$' + value.toLocaleString();
-                    }
-                }
-            }
+// Search Functionality
+const searchBox = document.getElementById('searchBox');
+const linkCards = document.querySelectorAll('.link-card');
+const noResults = document.getElementById('noResults');
+
+searchBox.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    let visibleCount = 0;
+
+    linkCards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+
+        if (title.includes(searchTerm) || desc.includes(searchTerm)) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
         }
+    });
+
+    // Show no results message
+    if (visibleCount === 0) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
     }
 });
 
-// Traffic Chart
-const trafficCtx = document.getElementById('trafficChart').getContext('2d');
-new Chart(trafficCtx, {
-    type: 'doughnut',
-    data: {
-        labels: ['Direct', 'Organic', 'Social', 'Referral'],
-        datasets: [
-            {
-                data: [35, 25, 20, 20],
-                backgroundColor: [
-                    '#667eea',
-                    '#764ba2',
-                    '#f093fb',
-                    '#4facfe'
-                ],
-                borderColor: '#fff',
-                borderWidth: 2
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        plugins: {
-            legend: {
-                position: 'bottom',
-                labels: {
-                    padding: 15,
-                    font: { size: 12, weight: '500' }
+// Filter Functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter cards
+        const filter = btn.getAttribute('data-filter');
+        let visibleCount = 0;
+
+        linkCards.forEach(card => {
+            if (filter === 'all') {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                const category = card.getAttribute('data-category');
+                if (category === filter) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
                 }
             }
+        });
+
+        // Show no results message
+        if (visibleCount === 0) {
+            noResults.style.display = 'block';
+        } else {
+            noResults.style.display = 'none';
         }
+    });
+});
+
+// Add keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    // Ctrl/Cmd + K to focus search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        searchBox.focus();
+    }
+
+    // Escape to clear search
+    if (e.key === 'Escape' && document.activeElement === searchBox) {
+        searchBox.value = '';
+        searchBox.blur();
+        linkCards.forEach(card => card.classList.remove('hidden'));
+        noResults.style.display = 'none';
     }
 });
 
-// Update charts when theme changes
-function updateChartsOnThemeChange() {
-    // This would redraw charts with appropriate colors for dark mode
-    // For simplicity, we're keeping the same colors
-}
-
-themeBtn.addEventListener('click', updateChartsOnThemeChange);
+// Log available shortcuts
+console.log('🔗 My Links Dashboard');
+console.log('Shortcuts:');
+console.log('• Ctrl/Cmd + K: Focus search');
+console.log('• Escape: Clear search');
