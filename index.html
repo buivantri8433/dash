@@ -24,13 +24,76 @@
         <!-- Filter Buttons -->
         <div class="filter-section">
             <button class="filter-btn active" data-filter="all">Tất cả</button>
+            <button class="filter-btn" data-filter="home">🏠 Trang chủ</button>
             <button class="filter-btn" data-filter="news">📰 Tin tức</button>
             <button class="filter-btn" data-filter="email">📧 Email</button>
             <button class="filter-btn" data-filter="ai">🤖 AI Chat</button>
+            <button class="filter-btn" data-filter="management">⚙️ Quản lý</button>
+            <button class="filter-btn" data-filter="remote">🖥️ Remote</button>
         </div>
 
         <!-- Links Grid -->
         <main class="links-container">
+            <!-- Trang chủ -->
+            <a href="https://hamaytri.com" target="_blank" class="link-card" data-category="home">
+                <div class="card-icon" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+                    🏠
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Trang chủ</h3>
+                    <p class="card-desc">hamaytri.com</p>
+                    <span class="card-category">Trang chủ</span>
+                </div>
+                <div class="card-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Quản lý Cloudflare -->
+            <a href="https://dash.cloudflare.com/3b792339272440d21d82873e719fb2e2/hamaytri.com" target="_blank" class="link-card" data-category="management">
+                <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #ec9707 100%);">
+                    ⚙️
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Quản lý</h3>
+                    <p class="card-desc">Cloudflare</p>
+                    <span class="card-category">Quản lý</span>
+                </div>
+                <div class="card-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Cùng chat -->
+            <a href="https://chat.hamaytri.com" target="_blank" class="link-card" data-category="ai">
+                <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                    💬
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Cùng chat</h3>
+                    <p class="card-desc">chat.hamaytri.com</p>
+                    <span class="card-category">AI Chat</span>
+                </div>
+                <div class="card-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Remote Guacamole -->
+            <a href="https://remote.hamaytri.com/guacamole/#/" target="_blank" class="link-card" data-category="remote">
+                <div class="card-icon" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
+                    🖥️
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Remote</h3>
+                    <p class="card-desc">Guacamole</p>
+                    <span class="card-category">Remote</span>
+                </div>
+                <div class="card-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
             <!-- Grok News -->
             <a href="https://grok.com/tasks" target="_blank" class="link-card" data-category="news">
                 <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
