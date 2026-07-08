@@ -3,27 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard truy cập nhanh các link thường dùng của Bùi Văn Trí">
     <title>My Links Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="bg-ornament" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
     <div class="dashboard-container">
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <h1 class="title">🔗 My Links</h1>
-                <p class="subtitle">Quick access to your favorite links</p>
+                <p class="greeting" id="greeting">Xin chào 👋</p>
+                <h1 class="title">My Links</h1>
+                <p class="subtitle">Truy cập nhanh mọi thứ bạn cần, ở một nơi.</p>
             </div>
             <div class="header-controls">
-                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search links...">
-                <button class="btn-theme" id="themeBtn">🌙</button>
+                <div class="search-wrap">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" class="search-box" id="searchBox" placeholder="Tìm kiếm link..." autocomplete="off">
+                    <kbd class="search-kbd">Ctrl K</kbd>
+                </div>
+                <button class="btn-theme" id="themeBtn" aria-label="Chuyển chế độ sáng/tối">🌙</button>
             </div>
         </header>
 
         <!-- Filter Buttons -->
-        <div class="filter-section">
-            <button class="filter-btn active" data-filter="all">Tất cả</button>
+        <nav class="filter-section" aria-label="Lọc theo danh mục">
+            <button class="filter-btn active" data-filter="all">✨ Tất cả</button>
             <button class="filter-btn" data-filter="home">🏠 Trang chủ</button>
             <button class="filter-btn" data-filter="dev">👨‍💻 Dev</button>
             <button class="filter-btn" data-filter="business">💼 Business</button>
@@ -33,210 +50,255 @@
             <button class="filter-btn" data-filter="ai">🤖 AI Chat</button>
             <button class="filter-btn" data-filter="management">⚙️ Quản lý</button>
             <button class="filter-btn" data-filter="remote">🖥️ Remote</button>
-        </div>
+        </nav>
 
         <!-- Links Grid -->
         <main class="links-container">
             <!-- Trang chủ -->
-            <a href="https://hamaytri.com" target="_blank" class="link-card" data-category="home">
-                <div class="card-icon" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
-                    🏠
+            <a href="https://hamaytri.com" target="_blank" rel="noopener" class="link-card" data-category="home" style="--accent: #f43f5e; --accent-2: #fb7185;">
+                <div class="card-top">
+                    <div class="card-icon">🏠</div>
+                    <span class="card-category">Trang chủ</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Trang chủ</h3>
                     <p class="card-desc">hamaytri.com</p>
-                    <span class="card-category">Trang chủ</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Sửa chính trang - Github Copilot -->
-            <a href="https://github.com/copilot/c/4116eef5-8b20-4ac9-8bff-ae555a6608ca" target="_blank" class="link-card" data-category="dev">
-                <div class="card-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
-                    👨‍💻
+            <a href="https://github.com/copilot/c/4116eef5-8b20-4ac9-8bff-ae555a6608ca" target="_blank" rel="noopener" class="link-card" data-category="dev" style="--accent: #10b981; --accent-2: #34d399;">
+                <div class="card-top">
+                    <div class="card-icon">👨‍💻</div>
+                    <span class="card-category">Dev</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Sửa chính trang</h3>
                     <p class="card-desc">Github Copilot</p>
-                    <span class="card-category">Dev</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Notion -->
-            <a href="https://hamaytri.notion.site/" target="_blank" class="link-card" data-category="business">
-                <div class="card-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
-                    📔
+            <a href="https://hamaytri.notion.site/" target="_blank" rel="noopener" class="link-card" data-category="business" style="--accent: #3b82f6; --accent-2: #60a5fa;">
+                <div class="card-top">
+                    <div class="card-icon">📔</div>
+                    <span class="card-category">Business</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Notion</h3>
                     <p class="card-desc">Trial business</p>
-                    <span class="card-category">Business</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Update Notion -->
-            <a href="https://app.notion.com/p/hamaytri/Documentations-39720d80a9ee805fabb7d165484d3b1a" target="_blank" class="link-card" data-category="business">
-                <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
-                    📝
+            <a href="https://app.notion.com/p/hamaytri/Documentations-39720d80a9ee805fabb7d165484d3b1a" target="_blank" rel="noopener" class="link-card" data-category="business" style="--accent: #8b5cf6; --accent-2: #a78bfa;">
+                <div class="card-top">
+                    <div class="card-icon">📝</div>
+                    <span class="card-category">Business</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Update Notion</h3>
                     <p class="card-desc">Documentations</p>
-                    <span class="card-category">Business</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- 2048 Game -->
-            <a href="https://buivantri8433.github.io/2048/" target="_blank" class="link-card" data-category="game">
-                <div class="card-icon" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
-                    🎮
+            <a href="https://buivantri8433.github.io/2048/" target="_blank" rel="noopener" class="link-card" data-category="game" style="--accent: #ec4899; --accent-2: #f472b6;">
+                <div class="card-top">
+                    <div class="card-icon">🎮</div>
+                    <span class="card-category">Game</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">2048</h3>
                     <p class="card-desc">game 2048</p>
-                    <span class="card-category">Game</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Flappy Birds Game -->
-            <a href="https://buivantri8433.github.io/flappy-birds/" target="_blank" class="link-card" data-category="game">
-                <div class="card-icon" style="background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);">
-                    🐦
+            <a href="https://buivantri8433.github.io/flappy-birds/" target="_blank" rel="noopener" class="link-card" data-category="game" style="--accent: #f97316; --accent-2: #fb923c;">
+                <div class="card-top">
+                    <div class="card-icon">🐦</div>
+                    <span class="card-category">Game</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Flappy Birds</h3>
                     <p class="card-desc">game Chim</p>
-                    <span class="card-category">Game</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Quản lý Cloudflare -->
-            <a href="https://dash.cloudflare.com/3b792339272440d21d82873e719fb2e2/hamaytri.com" target="_blank" class="link-card" data-category="management">
-                <div class="card-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #ec9707 100%);">
-                    ⚙️
+            <a href="https://dash.cloudflare.com/3b792339272440d21d82873e719fb2e2/hamaytri.com" target="_blank" rel="noopener" class="link-card" data-category="management" style="--accent: #f59e0b; --accent-2: #fbbf24;">
+                <div class="card-top">
+                    <div class="card-icon">⚙️</div>
+                    <span class="card-category">Quản lý</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Quản lý</h3>
                     <p class="card-desc">Cloudflare</p>
-                    <span class="card-category">Quản lý</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Cùng chat -->
-            <a href="https://chat.hamaytri.com" target="_blank" class="link-card" data-category="ai">
-                <div class="card-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
-                    💬
+            <a href="https://chat.hamaytri.com" target="_blank" rel="noopener" class="link-card" data-category="ai" style="--accent: #8b5cf6; --accent-2: #c084fc;">
+                <div class="card-top">
+                    <div class="card-icon">💬</div>
+                    <span class="card-category">AI Chat</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Cùng chat</h3>
                     <p class="card-desc">chat.hamaytri.com</p>
-                    <span class="card-category">AI Chat</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Remote Guacamole -->
-            <a href="https://remote.hamaytri.com/guacamole/#/" target="_blank" class="link-card" data-category="remote">
-                <div class="card-icon" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
-                    🖥️
+            <a href="https://remote.hamaytri.com/guacamole/#/" target="_blank" rel="noopener" class="link-card" data-category="remote" style="--accent: #06b6d4; --accent-2: #22d3ee;">
+                <div class="card-top">
+                    <div class="card-icon">🖥️</div>
+                    <span class="card-category">Remote</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Remote</h3>
                     <p class="card-desc">Guacamole</p>
-                    <span class="card-category">Remote</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Grok News -->
-            <a href="https://grok.com/tasks" target="_blank" class="link-card" data-category="news">
-                <div class="card-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    📰
+            <a href="https://grok.com/tasks" target="_blank" rel="noopener" class="link-card" data-category="news" style="--accent: #6366f1; --accent-2: #818cf8;">
+                <div class="card-top">
+                    <div class="card-icon">📰</div>
+                    <span class="card-category">Tin tức</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Grok News</h3>
                     <p class="card-desc">Cập nhật tin tức</p>
-                    <span class="card-category">Tin tức</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Gmail -->
-            <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="link-card" data-category="email">
-                <div class="card-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    📧
+            <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener" class="link-card" data-category="email" style="--accent: #ef4444; --accent-2: #f87171;">
+                <div class="card-top">
+                    <div class="card-icon">📧</div>
+                    <span class="card-category">Email</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Gmail</h3>
                     <p class="card-desc">Cập nhật inbox</p>
-                    <span class="card-category">Email</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- ChatGPT -->
-            <a href="https://chatgpt.com/library" target="_blank" class="link-card" data-category="ai">
-                <div class="card-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    🤖
+            <a href="https://chatgpt.com/library" target="_blank" rel="noopener" class="link-card" data-category="ai" style="--accent: #0ea5e9; --accent-2: #38bdf8;">
+                <div class="card-top">
+                    <div class="card-icon">🤖</div>
+                    <span class="card-category">AI Chat</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">ChatGPT</h3>
                     <p class="card-desc">Cập nhật library</p>
-                    <span class="card-category">AI Chat</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
 
             <!-- Claude -->
-            <a href="https://claude.ai/new" target="_blank" class="link-card" data-category="ai">
-                <div class="card-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                    💬
+            <a href="https://claude.ai/new" target="_blank" rel="noopener" class="link-card" data-category="ai" style="--accent: #14b8a6; --accent-2: #2dd4bf;">
+                <div class="card-top">
+                    <div class="card-icon">💬</div>
+                    <span class="card-category">AI Chat</span>
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">Claude</h3>
                     <p class="card-desc">Cùng chat</p>
-                    <span class="card-category">AI Chat</span>
                 </div>
-                <div class="card-hover">
-                    <i class="fas fa-arrow-right"></i>
+                <div class="card-arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
                 </div>
             </a>
         </main>
 
         <!-- No Results -->
         <div class="no-results" id="noResults" style="display: none;">
-            <p>😔 Không tìm thấy link nào</p>
+            <div class="no-results-emoji">🔍</div>
+            <p>Không tìm thấy link nào</p>
+            <span>Thử từ khoá khác hoặc chọn "Tất cả"</span>
         </div>
+
+        <footer class="footer">
+            <p><span id="linkCount"></span> · Made with ❤️ by Bùi Văn Trí</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
