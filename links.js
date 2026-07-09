@@ -88,6 +88,20 @@ const LINKS = [
         url: 'https://github.com/copilot/c/4116eef5-8b20-4ac9-8bff-ae555a6608ca',
         category: 'dev',
     },
+    {
+        title: 'Claude Code',
+        description: 'Code cùng Claude',
+        url: 'https://claude.ai/code',
+        icon: '👨‍💻',
+        category: 'dev',
+    },
+    {
+        title: 'My Code',
+        description: 'Code with me',
+        url: 'https://code.hamaytri.com/',
+        icon: '💻',
+        category: 'dev',
+    },
 
     // ---------- AI Chat ----------
     {
